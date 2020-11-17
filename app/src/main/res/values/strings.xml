@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">DevHub</string>
+    <string name="login">Login</string>
+    <string name="hello_there">Hello, there.</string>
+    <string name="login_and_connect_your_github_account_to_the_apps">Login and connect your github account to the apps.</string>
+    <string name="good_morning">Good Morning</string>
+    <string name="good_afternoon">Good Afternoon</string>
+    <string name="good_evening">Good Evening</string>
+    <string name="good_night">Good Night</string>
+    <string name="home">Home</string>
 </resources>

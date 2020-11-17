@@ -1,22 +1,49 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.GithubSearch" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme.DevHub" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/teal</item>
-        <item name="colorPrimaryVariant">@color/teal_dark</item>
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryVariant">@color/blue_light</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorOnSecondary">@color/black</item>
+        <item name="android:fontFamily">@font/montserrat</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.GithubSearch.NoActionBar">
+    <style name="DevHub.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">@font/montserrat</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+    </style>
+
+    <style name="DevHub.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/montserrat</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+    </style>
+
+    <style name="DevHub.BaseButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="DevHub.BaseButton.Large" parent="DevHub.BaseButton">
+        <item name="android:layout_height">60dp</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Theme.DevHub.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.GithubSearch.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.DevHub.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.GithubSearch.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.DevHub.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="DevHub.CircleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

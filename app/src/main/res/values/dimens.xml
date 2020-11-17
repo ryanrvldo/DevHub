@@ -1,3 +1,5 @@
 <resources>
     <dimen name="default_dimen">16dp</dimen>
+    <dimen name="double_default_dimen">32dp</dimen>
+    <dimen name="half_default_dimen">8dp</dimen>
 </resources>

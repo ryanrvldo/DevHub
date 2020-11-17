@@ -1,0 +1,35 @@
+package com.ryanrvldo.devhub.core.data.source.remote.response.profile
+
+import com.google.gson.annotations.SerializedName
+
+data class UserDetailsResponse(
+    @field:SerializedName("login") val username: String?,
+    @field:SerializedName("id") val id: Int?,
+    @field:SerializedName("node_id") val nodeId: String?,
+    @field:SerializedName("avatar_url") val avatarUrl: String?,
+    @field:SerializedName("gravatar_id") val gravatarId: String?,
+    @field:SerializedName("url") val apiUrl: String?,
+    @field:SerializedName("html_url") val profileUrl: String?,
+    @field:SerializedName("type") val type: String?,
+    @field:SerializedName("site_admin") val isSiteAdmin: Boolean?,
+    @field:SerializedName("name") val name: String?,
+    @field:SerializedName("company") val company: String?,
+    @field:SerializedName("blog") val blog: String?,
+    @field:SerializedName("location") val location: String?,
+    @field:SerializedName("email") val email: String?,
+    @field:SerializedName("bio") val bio: String?,
+    @field:SerializedName("twitter_username") val twitterUsername: String?,
+    @field:SerializedName("public_repos") val totalPublicRepos: Int?,
+    @field:SerializedName("public_gists") val totalPublicGists: Int?,
+    @field:SerializedName("followers") val totalFollowers: Int?,
+    @field:SerializedName("following") val totalFollowing: Int?,
+    @field:SerializedName("created_at") val createdAt: String?,
+    @field:SerializedName("updated_at") val updatedAt: String?,
+    @field:SerializedName("private_gists") val totalPrivateGists: Int?,
+    @field:SerializedName("total_private_repos") val totalPrivateRepos: Int?,
+    @field:SerializedName("owned_private_repos") val totalOwnedPrivateRepos: Int?,
+    @field:SerializedName("disk_usage") val totalDiskUsage: Int?,
+    @field:SerializedName("collaborators") val collaborators: Int?,
+    @field:SerializedName("two_factor_authentication") val isTwoFactoryEnabled: Boolean?,
+    @field:SerializedName("plan") val userPlanResponse: UserPlanResponse?,
+)
