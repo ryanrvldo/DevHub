@@ -3,8 +3,8 @@ package com.ryanrvldo.devhub.core.util.mapper.impl
 import com.google.common.truth.Truth
 import com.ryanrvldo.devhub.core.data.source.remote.response.profile.UserDetailsResponse
 import com.ryanrvldo.devhub.core.data.source.remote.response.profile.UserPlanResponse
-import com.ryanrvldo.devhub.core.domain.model.UserDetails
-import com.ryanrvldo.devhub.core.domain.model.UserPlan
+import com.ryanrvldo.devhub.core.domain.model.profile.UserDetails
+import com.ryanrvldo.devhub.core.domain.model.profile.UserPlan
 import com.ryanrvldo.devhub.core.util.mapper.ResponseToDomainMapperTest
 import org.junit.Test
 

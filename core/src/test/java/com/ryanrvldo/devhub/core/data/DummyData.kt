@@ -2,7 +2,7 @@ package com.ryanrvldo.devhub.core.data
 
 import com.ryanrvldo.devhub.core.data.source.remote.network.ApiResponse
 import com.ryanrvldo.devhub.core.data.source.remote.response.token.AccessTokenResponse
-import com.ryanrvldo.devhub.core.domain.model.AccessToken
+import com.ryanrvldo.devhub.core.domain.model.token.AccessToken
 
 object DummyData {
 

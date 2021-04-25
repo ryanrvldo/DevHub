@@ -3,7 +3,7 @@ package com.ryanrvldo.devhub.core.data.repository
 import com.ryanrvldo.devhub.core.data.Resource
 import com.ryanrvldo.devhub.core.data.source.remote.RemoteDataSource
 import com.ryanrvldo.devhub.core.data.source.remote.network.ApiResponse
-import com.ryanrvldo.devhub.core.domain.model.AccessToken
+import com.ryanrvldo.devhub.core.domain.model.token.AccessToken
 import com.ryanrvldo.devhub.core.domain.repository.LoginRepository
 import com.ryanrvldo.devhub.core.util.mapper.impl.AccessTokenResponseToDomainMapper
 import kotlinx.coroutines.flow.Flow

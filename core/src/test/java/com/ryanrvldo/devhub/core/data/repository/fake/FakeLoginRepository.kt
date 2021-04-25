@@ -3,7 +3,7 @@ package com.ryanrvldo.devhub.core.data.repository.fake
 import com.ryanrvldo.devhub.core.data.DummyData
 import com.ryanrvldo.devhub.core.data.Resource
 import com.ryanrvldo.devhub.core.data.source.remote.network.ApiResponse
-import com.ryanrvldo.devhub.core.domain.model.AccessToken
+import com.ryanrvldo.devhub.core.domain.model.token.AccessToken
 import com.ryanrvldo.devhub.core.domain.repository.LoginRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

@@ -7,7 +7,6 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
-import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ryanrvldo.devhub.BaseApplication
 import com.ryanrvldo.devhub.R
 import com.ryanrvldo.devhub.core.BuildConfig
@@ -19,9 +18,9 @@ import com.ryanrvldo.devhub.databinding.ActivityLoginBinding
 import com.ryanrvldo.devhub.main.MainActivity
 import javax.inject.Inject
 
-class LoginActivity : BaseActivity(R.layout.activity_login) {
+class LoginActivity : BaseActivity() {
 
-    private val binding: ActivityLoginBinding by viewBinding(R.id.activity_main_layout)
+    private lateinit var binding: ActivityLoginBinding
 
     @Inject
     lateinit var factory: ViewModelFactory
@@ -30,7 +29,9 @@ class LoginActivity : BaseActivity(R.layout.activity_login) {
     override fun onCreate(savedInstanceState: Bundle?) {
         (application as BaseApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
-
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        initLoadingContent()
         binding.btnLogin.setOnClickListener {
             launchCustomTabs()
         }

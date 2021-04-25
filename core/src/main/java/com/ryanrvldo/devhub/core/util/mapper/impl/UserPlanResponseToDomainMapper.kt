@@ -1,7 +1,7 @@
 package com.ryanrvldo.devhub.core.util.mapper.impl
 
 import com.ryanrvldo.devhub.core.data.source.remote.response.profile.UserPlanResponse
-import com.ryanrvldo.devhub.core.domain.model.UserPlan
+import com.ryanrvldo.devhub.core.domain.model.profile.UserPlan
 import com.ryanrvldo.devhub.core.util.mapper.Mapper
 import com.ryanrvldo.devhub.core.util.validation.NullableValidationUtil.validateNullableInteger
 import com.ryanrvldo.devhub.core.util.validation.NullableValidationUtil.validateNullableString
@@ -9,8 +9,8 @@ import com.ryanrvldo.devhub.core.util.validation.NullableValidationUtil.validate
 object UserPlanResponseToDomainMapper : Mapper<UserPlanResponse?, UserPlan> {
 
     override fun map(input: UserPlanResponse?): UserPlan {
-        input?.let {
-            return with(input) {
+        input?.let { response ->
+            return with(response) {
                 UserPlan(
                     name = validateNullableString(name),
                     space = validateNullableInteger(space),

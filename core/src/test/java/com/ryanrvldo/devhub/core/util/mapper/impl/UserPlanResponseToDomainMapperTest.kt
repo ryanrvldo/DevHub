@@ -2,7 +2,7 @@ package com.ryanrvldo.devhub.core.util.mapper.impl
 
 import com.google.common.truth.Truth.assertThat
 import com.ryanrvldo.devhub.core.data.source.remote.response.profile.UserPlanResponse
-import com.ryanrvldo.devhub.core.domain.model.UserPlan
+import com.ryanrvldo.devhub.core.domain.model.profile.UserPlan
 import com.ryanrvldo.devhub.core.util.mapper.ResponseToDomainMapperTest
 import org.junit.Test
 

@@ -1,7 +1,7 @@
-package com.ryanrvldo.devhub.util
+package com.ryanrvldo.devhub.core.util
 
 import android.content.Context
-import com.ryanrvldo.devhub.R
+import com.ryanrvldo.devhub.core.R
 import java.util.*
 
 

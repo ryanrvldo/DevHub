@@ -2,12 +2,11 @@ package com.ryanrvldo.devhub.core.ui
 
 import android.os.Bundle
 import android.view.View
-import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 
-abstract class BaseFragment(@LayoutRes contentLayoutId: Int) : Fragment(contentLayoutId),
+abstract class BaseFragment : Fragment(),
     BaseViewFunction {
 
     lateinit var loadingContent: View

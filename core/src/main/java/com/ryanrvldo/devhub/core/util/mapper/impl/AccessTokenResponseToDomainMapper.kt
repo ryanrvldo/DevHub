@@ -1,7 +1,7 @@
 package com.ryanrvldo.devhub.core.util.mapper.impl
 
 import com.ryanrvldo.devhub.core.data.source.remote.response.token.AccessTokenResponse
-import com.ryanrvldo.devhub.core.domain.model.AccessToken
+import com.ryanrvldo.devhub.core.domain.model.token.AccessToken
 import com.ryanrvldo.devhub.core.util.mapper.Mapper
 import com.ryanrvldo.devhub.core.util.validation.NullableValidationUtil.validateNullableString
 

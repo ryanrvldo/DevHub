@@ -6,6 +6,7 @@ import com.ryanrvldo.devhub.core.domain.usecase.accesstoken.WriteUserAccessToken
 import com.ryanrvldo.devhub.core.domain.usecase.login.CheckUserLoginStatusUseCase
 import com.ryanrvldo.devhub.core.domain.usecase.login.LoginUseCase
 import com.ryanrvldo.devhub.core.domain.usecase.user.GetUserDetailsUseCase
+import com.ryanrvldo.devhub.core.domain.usecase.user.GetUserReceivedEventsUseCase
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -28,6 +29,8 @@ interface CoreComponent {
     fun checkUserLoginStatusUseCase(): CheckUserLoginStatusUseCase
 
     fun getUserDetailsUseCase(): GetUserDetailsUseCase
+
+    fun getUserReceivedEventsUseCase(): GetUserReceivedEventsUseCase
 
 //    fun searchUseCase(): SearchUseCase
 

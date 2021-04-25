@@ -1,39 +1,95 @@
 package com.ryanrvldo.devhub.main.home
 
 import android.content.Context
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import by.kirich1409.viewbindingdelegate.viewBinding
+import androidx.paging.LoadState
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ryanrvldo.devhub.BaseApplication
-import com.ryanrvldo.devhub.R
 import com.ryanrvldo.devhub.core.ui.BaseFragment
+import com.ryanrvldo.devhub.core.ui.EventsAdapter
 import com.ryanrvldo.devhub.core.ui.ViewModelFactory
+import com.ryanrvldo.devhub.core.util.Constants
 import com.ryanrvldo.devhub.databinding.FragmentHomeBinding
-import com.ryanrvldo.devhub.main.MainViewModel
-import com.ryanrvldo.devhub.util.GreetingsUtil
 import javax.inject.Inject
 
-class HomeFragment : BaseFragment(R.layout.fragment_home) {
+class HomeFragment : BaseFragment() {
 
-    private val binding: FragmentHomeBinding by viewBinding()
+    private var _binding: FragmentHomeBinding? = null
+    private val binding: FragmentHomeBinding
+        get() = _binding!!
 
     @Inject
     lateinit var factory: ViewModelFactory
-    private val viewModel: MainViewModel by viewModels { factory }
+    private val homeViewModel: HomeViewModel by viewModels { factory }
+
+    private lateinit var eventsAdapter: EventsAdapter
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         (requireActivity().application as BaseApplication).appComponent.inject(this)
+        val username = arguments?.getString(Constants.USERNAME_EXTRA) ?: ""
+        if (username.isNotEmpty()) {
+            homeViewModel.setUsernameValue(username)
+        }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View {
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupSwipeRefreshLayout()
+        setupEventsRecyclerView()
+    }
+
+    private fun setupEventsRecyclerView() {
+        with(binding.rvEvents) {
+            eventsAdapter = EventsAdapter()
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = eventsAdapter
+        }
+        eventsAdapter.addLoadStateListener { loadStates ->
+            when (loadStates.refresh) {
+                is LoadState.Loading -> binding.swipeRefreshLayout.isRefreshing = true
+                is LoadState.NotLoading -> binding.swipeRefreshLayout.isRefreshing = false
+                is LoadState.Error -> {
+                    val state = loadStates.refresh as LoadState.Error
+                    showSnackbar(state.error.message.toString())
+                    if (binding.root.isRefreshing) {
+                        binding.root.isRefreshing = false
+                    }
+                }
+            }
+        }
+    }
+
+    private fun setupSwipeRefreshLayout() {
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            binding.swipeRefreshLayout.isRefreshing = true
+            eventsAdapter.retry()
+            eventsAdapter.refresh()
+            binding.swipeRefreshLayout.isRefreshing = false
+        }
     }
 
     override fun initLoadingContent() {
-        super.loadingContent = binding.contentLoading.root
+        super.loadingContent = binding.swipeRefreshLayout
     }
 
     override fun observeLiveData() {
-        viewModel.userDetails.observe(requireActivity()) { value ->
-            onHandleLiveDataValue(value) { user ->
-                binding.tvUserFullName.text = user.name
-                binding.tvGreetings.text = GreetingsUtil.getGreetings(requireContext())
+        homeViewModel.events.observe(viewLifecycleOwner) { value ->
+            value?.let {
+                eventsAdapter.submitData(lifecycle, it)
             }
         }
     }

@@ -1,7 +1,7 @@
 package com.ryanrvldo.devhub.core.domain.repository
 
 import com.ryanrvldo.devhub.core.data.Resource
-import com.ryanrvldo.devhub.core.domain.model.AccessToken
+import com.ryanrvldo.devhub.core.domain.model.token.AccessToken
 import kotlinx.coroutines.flow.Flow
 
 interface LoginRepository {

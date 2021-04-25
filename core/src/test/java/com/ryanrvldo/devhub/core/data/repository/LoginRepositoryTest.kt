@@ -6,7 +6,7 @@ import com.ryanrvldo.devhub.core.MainCoroutinesRule
 import com.ryanrvldo.devhub.core.data.DummyData
 import com.ryanrvldo.devhub.core.data.Resource
 import com.ryanrvldo.devhub.core.data.repository.fake.FakeLoginRepository
-import com.ryanrvldo.devhub.core.domain.model.AccessToken
+import com.ryanrvldo.devhub.core.domain.model.token.AccessToken
 import com.ryanrvldo.devhub.core.domain.repository.LoginRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first

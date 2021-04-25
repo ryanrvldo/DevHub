@@ -1,7 +1,7 @@
 package com.ryanrvldo.devhub.core.domain.usecase.user
 
 import com.ryanrvldo.devhub.core.data.Resource
-import com.ryanrvldo.devhub.core.domain.model.UserDetails
+import com.ryanrvldo.devhub.core.domain.model.profile.UserDetails
 import com.ryanrvldo.devhub.core.domain.repository.UserRepository
 import com.ryanrvldo.devhub.core.domain.usecase.accesstoken.ReadUserAccessTokenUseCase
 import com.ryanrvldo.devhub.core.exception.IllegalResourceClassException
@@ -19,7 +19,7 @@ class GetUserDetailsUseCaseImpl @Inject constructor(
             is Resource.Success -> userRepository.getUserDetails(result.data
                 ?: throw NullPointerException("Expression 'result.data' must not be null"))
             is Resource.Error -> flow {
-                emit(Resource.Error<UserDetails>(result.message!!))
+                emit(Resource.Error<UserDetails>(result.message.toString()))
             }
             else -> throw IllegalResourceClassException()
         }

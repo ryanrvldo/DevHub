@@ -10,6 +10,8 @@ import com.ryanrvldo.devhub.core.domain.usecase.login.LoginUseCase
 import com.ryanrvldo.devhub.core.domain.usecase.login.LoginUseCaseImpl
 import com.ryanrvldo.devhub.core.domain.usecase.user.GetUserDetailsUseCase
 import com.ryanrvldo.devhub.core.domain.usecase.user.GetUserDetailsUseCaseImpl
+import com.ryanrvldo.devhub.core.domain.usecase.user.GetUserReceivedEventsUseCase
+import com.ryanrvldo.devhub.core.domain.usecase.user.GetUserReceivedEventsUseCaseImpl
 import dagger.Binds
 import dagger.Module
 
@@ -30,6 +32,9 @@ abstract class UseCaseModule {
 
     @Binds
     abstract fun provideGetUserDetailsUseCase(getUserDetailsUseCaseImpl: GetUserDetailsUseCaseImpl): GetUserDetailsUseCase
+
+    @Binds
+    abstract fun provideGetUserReceivedEventsUseCase(getUserReceivedEventsUseCaseImpl: GetUserReceivedEventsUseCaseImpl): GetUserReceivedEventsUseCase
 
 //    @Binds
 //    abstract fun provideSearchUseCase(searchUseCaseImpl: SearchUseCaseImpl): SearchUseCase

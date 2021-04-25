@@ -1,7 +1,7 @@
 package com.ryanrvldo.devhub.core.util.mapper.impl
 
 import com.ryanrvldo.devhub.core.data.source.remote.response.profile.UserDetailsResponse
-import com.ryanrvldo.devhub.core.domain.model.UserDetails
+import com.ryanrvldo.devhub.core.domain.model.profile.UserDetails
 import com.ryanrvldo.devhub.core.util.mapper.Mapper
 import com.ryanrvldo.devhub.core.util.validation.NullableValidationUtil.validateNullableBoolean
 import com.ryanrvldo.devhub.core.util.validation.NullableValidationUtil.validateNullableInteger

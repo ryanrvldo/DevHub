@@ -1,7 +1,7 @@
-package com.ryanrvldo.devhub.core.domain.model
+package com.ryanrvldo.devhub.core.domain.model.token
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class AccessToken(

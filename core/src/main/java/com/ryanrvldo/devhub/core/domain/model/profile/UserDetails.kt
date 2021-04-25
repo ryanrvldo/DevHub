@@ -1,4 +1,4 @@
-package com.ryanrvldo.devhub.core.domain.model
+package com.ryanrvldo.devhub.core.domain.model.profile
 
 data class UserDetails(
     val username: String,

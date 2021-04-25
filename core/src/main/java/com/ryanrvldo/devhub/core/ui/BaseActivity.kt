@@ -2,18 +2,16 @@ package com.ryanrvldo.devhub.core.ui
 
 import android.os.Bundle
 import android.view.View
-import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 
-abstract class BaseActivity(@LayoutRes contentLayoutId: Int) : AppCompatActivity(contentLayoutId),
+abstract class BaseActivity : AppCompatActivity(),
     BaseViewFunction {
 
     lateinit var loadingContent: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initLoadingContent()
         observeLiveData()
     }
 

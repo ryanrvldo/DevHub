@@ -7,10 +7,12 @@ import androidx.paging.PagingData
 import com.ryanrvldo.devhub.core.data.source.remote.network.ApiResponse
 import com.ryanrvldo.devhub.core.data.source.remote.network.ApiService
 import com.ryanrvldo.devhub.core.data.source.remote.network.LoginService
+import com.ryanrvldo.devhub.core.data.source.remote.paging.ReceivedEventsPagingSource
 import com.ryanrvldo.devhub.core.data.source.remote.paging.SearchUsersPagingSource
 import com.ryanrvldo.devhub.core.data.source.remote.response.profile.UserDetailsResponse
 import com.ryanrvldo.devhub.core.data.source.remote.response.token.AccessTokenResponse
-import com.ryanrvldo.devhub.core.domain.model.User
+import com.ryanrvldo.devhub.core.domain.model.events.ReceivedEvents
+import com.ryanrvldo.devhub.core.domain.model.search.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -56,6 +58,22 @@ class RemoteDataSource @Inject constructor(
                 exception)
         }
     }.flowOn(Dispatchers.IO)
+
+    fun getUserReceivedEvents(
+        oauthToken: String,
+        username: String,
+    ): Flow<PagingData<ReceivedEvents>> {
+        return Pager(
+            config = PagingConfig(
+                pageSize = 20,
+                enablePlaceholders = true,
+                maxSize = 40,
+                prefetchDistance = 5,
+                initialLoadSize = 40
+            ),
+            pagingSourceFactory = { ReceivedEventsPagingSource(apiService, oauthToken, username) }
+        ).flow
+    }
 
     fun getSearchUsers(query: String): Flow<PagingData<User>> {
         return Pager(

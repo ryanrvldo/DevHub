@@ -3,7 +3,7 @@ package com.ryanrvldo.devhub.core.util.mapper.impl
 import com.google.common.truth.Truth.assertThat
 import com.ryanrvldo.devhub.core.data.DummyData
 import com.ryanrvldo.devhub.core.data.source.remote.response.token.AccessTokenResponse
-import com.ryanrvldo.devhub.core.domain.model.AccessToken
+import com.ryanrvldo.devhub.core.domain.model.token.AccessToken
 import com.ryanrvldo.devhub.core.util.mapper.ResponseToDomainMapperTest
 import org.junit.Test
 

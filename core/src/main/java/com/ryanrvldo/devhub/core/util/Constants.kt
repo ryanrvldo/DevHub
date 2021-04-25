@@ -9,7 +9,7 @@ object Constants {
             "&scope=user%20repo%20delete_repo%20gist%20notifications" +
             "&redirect_uri=${BuildConfig.CALLBACK_URL}"
 
-    const val TOKEN_EXTRA = "EXTRA_TOKEN"
+    const val USERNAME_EXTRA = "USERNAME_EXTRA"
 
     const val TOKEN_SHARED_PREF = "com.ryanrvldo.devhub.TOKEN_SHARED_PREF"
     const val USER_TOKEN_KEY = "com.ryanrvldo.devhub.USER_TOKEN_KEY"
